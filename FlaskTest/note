@@ -1,0 +1,20 @@
+from market import db
+db.drop_all()
+db.create_all()  
+from market.models import User, Item
+u1 = User(username = 'sfs', password_hash = '12345', email_address = 'fsf@fsf.com')
+db.session.add(u1)
+db.session.commit()
+i1 = Item(name = "iPhone 10", description = "desc", barcode = "1234", price = 800)
+db.session.add(i1)  
+db.session.commit()
+i1 = Item(name = "iPhone 11", description = "descc", barcode = "12354", price = 8200) 
+db.session.add(i1)
+db.session.commit()
+Item.query.all()
+i1 = Item.query.filter_by(name = 'iPhone 10').first()
+i1.owner 
+i1.owner = User.query.filter_by(username = 'sfs').first().id
+db.session.add(i1)    
+db.session.commit()
+i1 = Item.query.filter_by(name = 'iPhone 10').first()
