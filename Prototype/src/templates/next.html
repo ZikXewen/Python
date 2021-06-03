@@ -1,0 +1,32 @@
+<!--prettier-ignore-->
+{% extends 'base.html' %} 
+{% block title %}Prototype Home{% endblock %}
+{% block content %}
+<div class="m-3 py-4 text-center bg-dark" style="color: white">
+  <div class="mx-auto py-5">
+    <h1 class="display-4">Greetings</h1>
+    <p class="lead">Record and Playback here</p>
+    <button
+      id="recordButton"
+      onclick="startRecord(this);"
+      class="btn btn-primary"
+    >
+      Record
+    </button>
+    <button
+      id="stopButton"
+      onclick="stopRecord(this);"
+      class="btn btn-secondary"
+      disabled
+    >
+      Stop
+    </button>
+  </div>
+  <div class="mx-auto col-6 py-5" style="background-color: #202025">
+    <h2>Recordings</h2>
+    <ul class="list-group" id="recordList"></ul>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/gh/mattdiamond/Recorderjs/dist/recorder.js"></script>
+<script src="/static/js/next.js"></script>
+{% endblock %}
