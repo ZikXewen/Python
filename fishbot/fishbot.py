@@ -1,6 +1,7 @@
 from time import sleep
 from discord import Client
 from pyautogui import write, press
+from constant import token
 def fish():
     sleep(3)
     write('%f')
@@ -31,4 +32,4 @@ class MyClient(Client):
             await message.channel.send('Toggled ' + ('On' if self.runBool else 'Off'))
 
 client = MyClient()
-client.run('ODQ0MTg4ODExMTI3MDI5Nzkw.YKOyGA.Q4_ZBuz-QBfjL4xpgI3JMnNY76Y')
+client.run(token)

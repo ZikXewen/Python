@@ -10,7 +10,6 @@ processor = Wav2Vec2Processor.from_pretrained("facebook/wav2vec2-base-960h")
 model = Wav2Vec2ForCTC.from_pretrained("facebook/wav2vec2-base-960h")
 
 audio, rate = load("TestAudio2.ogg", sr = 16000)
-# print(audio, rate)
 
 input_values = processor(audio, return_tensors="pt").input_values
 logits = model(input_values).logits
